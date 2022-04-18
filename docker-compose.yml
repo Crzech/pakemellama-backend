@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  mysqldb:
+    image: mysql:5.7
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=pakemellama
+    ports:
+      - 3306:3306
+    volumes:
+      - db:/var/lib/mysql
+  app:
+    depends_on:
+      - mysqldb
+    build: 
+      context: .
+      dockerfile: ./docker/node.Dockerfile
+    restart: unless-stopped
+    ports:
+      - 8080:8080
+    environment:
+      - DB_HOST=mysqldb
+      - DB_USER=root
+      - DB_PASSWORD=root
+      - DB_NAME=pakemellama
+      - DB_PORT=3306
+    stdin_open: true
+    tty: true
+volumes: 
+  db:
