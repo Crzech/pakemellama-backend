@@ -30,7 +30,7 @@ exports.create = (req, res) => {
 
 exports.selectAll = (req, res) => {
     sql.query("SELECT * FROM Productos", (errSQl, resSql) => {
-        if (err) {
+        if (errSQl) {
             res.status(500).send({ err: errSQl });
         } else {
             res.status(200).send(resSql);
