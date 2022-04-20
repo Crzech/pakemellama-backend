@@ -13,8 +13,8 @@ Producto.createOne = function(nuevoProducto, resultado) {
           console.log(err);
           resultado(err, null); 
        }
-       console.log("Producto creado con exito", { id: sqlRes.insertId, ...newProducto })
-       resultado(null, { id: sqlRes.insertId, ...newProducto });
+       console.log("Producto creado con exito", { id: sqlRes.insertId, ...nuevoProducto })
+       resultado(null, { id: sqlRes.insertId, ...nuevoProducto });
    });
 }
 
