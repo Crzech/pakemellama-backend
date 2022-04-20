@@ -1,4 +1,5 @@
 const Producto = require("../models/ProductoModel.js");
+const sql = require('../db.js');
 
 exports.create = (req, res) => {
     if (!req.body) {
@@ -7,8 +8,8 @@ exports.create = (req, res) => {
         });
         return;
     }
-    
-    const { nombre, descripcion, tipo, precio } = req.body; 
+
+    const { nombre, descripcion, tipo, precio } = req.body;
     const producto = new Producto({
         nombre,
         descripcion,
@@ -18,10 +19,21 @@ exports.create = (req, res) => {
     Producto.createOne(producto, (err, data) => {
         if (err) {
             res.status(500).send({
-               message: err.message || "Algun error interno ha sucedido al crear el producto"
+                message: err.message || "Algun error interno ha sucedido al crear el producto"
             });
         } else {
             res.status(201).send({ message: "Producto creado exitosamente", data })
         }
     })
-}; 
+};
+
+
+exports.selectAll = (req, res) => {
+    sql.query("SELECT * FROM Productos", (errSQl, resSql) => {
+        if (err) {
+            res.status(500).send({ err: errSQl });
+        } else {
+            res.status(200).send(resSql);
+        }
+    })
+};
