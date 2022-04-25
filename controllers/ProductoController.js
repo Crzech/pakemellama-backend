@@ -1,7 +1,5 @@
 const Producto = require("../models/ProductoModel.js");
-exports.selectAll = (res) => {
-    res.status(200)
-}
+exports.selectAll = Producto.selectAll
 exports.create = (req, res) => {
     if (!req.body) {
         res.status(400).send({
