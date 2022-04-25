@@ -26,7 +26,7 @@ exports.create = (req, res) => {
     })
 };
 Producto.selectAll = function (resultado) {
-    sql.query("SELECT * FROM Productos", (err, res) => {
+    sql.query("SELECT * FROM Productos", null, (err, res) => {
         if (err) {
             console.log(err)
             resultado(err, null)
