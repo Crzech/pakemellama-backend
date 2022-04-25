@@ -1,5 +1,5 @@
 const Producto = require("../models/ProductoModel.js");
-exports.selectAll = Producto.selectAll
+
 exports.create = (req, res) => {
     if (!req.body) {
         res.status(400).send({
@@ -25,13 +25,3 @@ exports.create = (req, res) => {
         }
     })
 };
-Producto.selectAll = function (resultado) {
-    sql.query("SELECT * FROM Productos", null, (err, res) => {
-        if (err) {
-            console.log(err)
-            resultado(err, null)
-        }
-        console.log("Informacion enviada con exito")
-        resultado(null, res)
-    })
-}
