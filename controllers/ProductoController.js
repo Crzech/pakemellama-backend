@@ -1,5 +1,4 @@
 const Producto = require("../models/ProductoModel.js");
-const sql = require('../db.js');
 
 exports.create = (req, res) => {
     if (!req.body) {
@@ -26,14 +25,13 @@ exports.create = (req, res) => {
         }
     })
 };
-
-
-exports.selectAll = (req, res) => {
-    sql.query("SELECT * FROM Productos", (errSQl, resSql) => {
-        if (errSQl) {
-            res.status(500).send({ err: errSQl });
-        } else {
-            res.status(200).send(resSql);
+Producto.selectAll = function (resultado) {
+    sql.query("SELECT * FROM Productos", (err, res) => {
+        if (err) {
+            console.log(err)
+            resultado(err, null)
         }
+        console.log("Informacion enviada con exito")
+        resultado(null, res)
     })
-};
+}
