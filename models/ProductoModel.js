@@ -17,5 +17,12 @@ Producto.createOne = function (nuevoProducto, resultado) {
         resultado(null, { id: sqlRes.insertId, ...nuevoProducto });
     });
 }
-
+Producto.selectAll = function (resultado) {
+    sql.query("SELECT * FROM Productos", (err, sqlRes) => {
+        if (err) {
+            resultado(err, null)
+        }
+        resultado(null, sqlRes)
+    })
+}
 module.exports = Producto;

@@ -25,3 +25,17 @@ exports.create = (req, res) => {
         }
     })
 };
+exports.selectAll = (req, res) => {
+    Producto.selectAll((err, data) => {
+        if (err) {
+            res.status(500).send({
+                message: err.message
+            })
+        } else {
+            res.status(200).send({
+                message: "Informacion enviada correctamente", data
+            })
+        }
+    })
+}
+
