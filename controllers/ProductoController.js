@@ -38,31 +38,4 @@ exports.selectAll = (req, res) => {
         }
     })
 }
-exports.update = (req, res) => {
-    if (!req.body) {
-        res.status(400).send({
-            message: "El contenido de la petición no puede estar vacío"
-        });
-        return;
-    }
 
-    const { nombre, descripcion, tipo, precio, id } = req.body;
-    const productoUpdate = new Producto({
-        nombre,
-        descripcion,
-        tipo,
-        precio,
-        id
-    });
-    Producto.update(productoUpdate, (err, res) => {
-        if (err) {
-            res.status(500).send({
-                message: err.message
-            })
-        } else {
-            res.status(200).send({
-                message: "Informacion modificada con exito"
-            })
-        }
-    })
-}
