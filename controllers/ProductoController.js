@@ -38,4 +38,3 @@ exports.selectAll = (req, res) => {
         }
     })
 }
-

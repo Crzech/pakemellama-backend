@@ -25,5 +25,4 @@ Producto.selectAll = function (resultado) {
         resultado(null, sqlRes)
     })
 }
-
 module.exports = Producto;
