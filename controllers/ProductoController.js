@@ -47,7 +47,7 @@ exports.update = (req, res) => {
     }
 
     const { nombre, descripcion, tipo, precio, id } = req.body;
-    const producto = new Producto({
+    const producto = Producto({
         nombre,
         descripcion,
         tipo,
