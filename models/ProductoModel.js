@@ -7,7 +7,6 @@ const Producto = function (producto) {
     this.Precio = producto.precio;
     this.id = producto.id;
 }
-const update = producto.id
 Producto.createOne = function (nuevoProducto, resultado) {
     sql.query("INSERT INTO Productos SET ?", nuevoProducto, (err, sqlRes) => {
         if (err) {
@@ -27,7 +26,7 @@ Producto.selectAll = function (resultado) {
     })
 }
 Producto.update = function (productoUpdate, resultado) {
-    sql.query("UPDATE Productos SET ? WHERE id = update", productoUpdate, (err, sqlRes) => {
+    sql.query("UPDATE Productos SET ? WHERE id = ?", productoUpdate, (err, sqlRes) => {
         if (err) {
             console.log(err);
             resultado(err, null);
