@@ -54,7 +54,7 @@ exports.update = (req, res) => {
         precio,
         id
     });
-    Producto.createOne(producto, (err, data) => {
+    Producto.update(producto, (err, data) => {
         if (err) {
             res.status(500).send({
                 message: err.message || "Algun error interno ha sucedido al actualizar el producto"
