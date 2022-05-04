@@ -26,14 +26,4 @@ Producto.selectAll = function (resultado) {
         resultado(null, sqlRes)
     })
 }
-Producto.update = function (productoupdate, resultado) {
-    sql.query("UPDATE Productos SET ? WHERE id = ?", productoupdate, (err, sqlRes) => {
-        if (err) {
-            console.log(err);
-            resultado(err, null)
-        } console.log("Producto actualizado con exito", null)
-        resultado(null, sqlRes)
-    })
-
-}
-module.exports = Producto;
+le.exports = Producto;
