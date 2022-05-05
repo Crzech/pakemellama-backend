@@ -27,7 +27,7 @@ Producto.selectAll = function (resultado) {
 }
 
 Producto.update = function (require, resultado) {
-    sql.query(`DELETE Productos SET Nombre = ?, Descripcion = ?, Precio = ?, Tipo = ? WHERE id = ?`, [require.id], (err, sqlRes) => {
+    sql.query(`DELETE FROM Productos WHERE id = ?`, [require.id], (err, sqlRes) => {
         if (err) {
             console.log(err);
             resultado(err, null);
