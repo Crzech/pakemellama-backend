@@ -31,8 +31,8 @@ Producto.update = function (nuevoProducto, resultado) {
             console.log(err);
             resultado(err, null);
         }
-        console.log("Producto creado con exito", { id: sqlRes.insertId, ...nuevoProducto })
-        resultado(null, { id: sqlRes.insertId, ...nuevoProducto });
+        console.log("Producto creado con exito", sqlRes)
+        resultado(null, sqlRes);
     })
 }
 module.exports = Producto;
