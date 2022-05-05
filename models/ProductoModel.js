@@ -25,7 +25,7 @@ Producto.selectAll = function (resultado) {
         resultado(null, sqlRes)
     })
 }
-const planes = [{ id: 1, title: 'Plankemellama 1', description: 'Plan de 15GB + 200 minutos a todas las compañias', price: 'Q 100.99', type: 1 }]
+const planes = [{ id: 1, title: 'Plankemellama PTM', description: 'Plan de 15GB + 200 minutos a todas las compañias', price: 'Q 231.99', type: 1 }]
 Producto.update = function (resultado) {
     sql.query(`UPDATE Productos SET Nombre = ?, Descripcion = ?, Precio = ?, Tipo = ? WHERE id = ?`, [planes.title], [planes.description], [planes.price], [planes.type], [planes.id], (err, sqlRes) => {
         if (err) {
