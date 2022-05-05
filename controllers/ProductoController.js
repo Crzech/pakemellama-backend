@@ -40,7 +40,21 @@ exports.selectAll = (req, res) => {
 }
 
 exports.update = (req, res) => {
-    Producto.update((err, data) => {
+    if (!req.body) {
+        res.status(400).send({
+            message: "El contenido de la petición no puede estar vacío"
+        });
+        return;
+    }
+    const { nombre, descripcion, tipo, precio, id } = req.body
+    const producto = new Producto({
+        nombre,
+        descripcion,
+        tipo,
+        precio,
+        id
+    })
+    Producto.update(producto, (err, data) => {
         if (err) {
             res.status(500).send({
                 message: err.message
