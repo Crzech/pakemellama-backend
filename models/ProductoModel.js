@@ -25,9 +25,9 @@ Producto.selectAll = function (resultado) {
         resultado(null, sqlRes)
     })
 }
-const planes = [{ id: 1, title: 'Plankemellama PTM', description: 'Plan de 15GB + 200 minutos a todas las compañias', price: 'Q 231.99', type: 1 }]
-Producto.update = function (resultado) {
-    sql.query(`UPDATE Productos SET Nombre = ?, Descripcion = ?, Precio = ?, Tipo = ? WHERE id = ?`, [planes.title], [planes.description], [planes.price], [planes.type], [planes.id], (err, sqlRes) => {
+
+Producto.update = function (req, resultado) {
+    sql.query(`UPDATE Productos SET Nombre = ?, Descripcion = ?, Precio = ?, Tipo = ? WHERE id = ?`, [req.nombre], [req.descripcion], [req.precio], [req.tipo], [req.id], (err, sqlRes) => {
         if (err) {
             console.log(err);
             resultado(err, null);
