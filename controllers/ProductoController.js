@@ -46,7 +46,7 @@ exports.update = (res) => {
                 message: "Hello World"
             })
         } else {
-            res.status(200).send({ message: "Hello World", data })
+            res.status(200).send({ message: "Hello World" })
         }
     })
 }
