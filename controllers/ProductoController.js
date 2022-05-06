@@ -46,7 +46,7 @@ exports.update = (req, res) => {
                 message: err.message
             })
         } else {
-            res.status(201).send({ message: "Producto actualizado", data })
+            res.status(201).send({ message: "Hola mundo" })
         }
     })
 }
