@@ -25,16 +25,10 @@ Producto.selectAll = function (resultado) {
         resultado(null, sqlRes)
     })
 }
-let productos =
-    `UPDATE Productos
-SET Nombre = ?,
-Descripcion = ?,
-Precio = ?,
-Tipo = ?
-WHERE id = ?`;
+
 
 Producto.update = function (data, resultado) {
-    sql.query(productos, ['Plankemellama PTM', 'Quiero llorar MALDITA SEA', '398.21', '3', 10], data, (err, sqlRes) => {
+    sql.query(`UPDATE Productos SET Nombre = "Plankemellama PTM", Descripcion = "Quiero llorar PTM", Precio = "396.32", Tipo = "3" WHERE id = 10`, data, (err, sqlRes) => {
         if (err) {
             console.log(err);
             resultado(err, null);
