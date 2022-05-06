@@ -40,7 +40,7 @@ exports.selectAll = (req, res) => {
 }
 
 exports.update = (req, res) => {
-    Producto.update(producto, (err, data) => {
+    Producto.update((err, data) => {
         if (err) {
             res.status(500).send({
                 message: err.message
