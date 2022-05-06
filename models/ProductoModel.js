@@ -27,14 +27,14 @@ Producto.selectAll = function (resultado) {
 }
 
 
-// Producto.update = function (data, resultado) {
-//     sql.query(`UPDATE Productos SET Nombre = "Plankemellama PTM", Descripcion = "Quiero llorar PTM", Precio = "396.32", Tipo = "3" WHERE id = 10`, data, (err, sqlRes) => {
-//         if (err) {
-//             console.log(err);
-//             resultado(err, null);
-//         }
-//         console.log("Producto creado con exito", sqlRes)
-//         resultado(null, sqlRes);
-//     })
-// }
+Producto.update = function (data, resultado) {
+    sql.query(`UPDATE Productos SET Nombre = "Plankemellama PTM", Descripcion = "Quiero llorar PTM", Precio = "396.32", Tipo = "3" WHERE id = 1`, data, (err, sqlRes) => {
+        if (err) {
+            console.log(err);
+            resultado(err, null);
+        }
+        console.log("Producto creado con exito", sqlRes)
+        resultado(null, sqlRes);
+    })
+}
 module.exports = Producto;
