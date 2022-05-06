@@ -32,15 +32,9 @@ Descripcion = ?,
 Precio = ?,
 Tipo = ?
 WHERE id = ?`;
-let info = [
-    Producto.Nombre,
-    Producto.Descripcion,
-    Producto.Precio,
-    Producto.Tipo,
-    Producto.id
-]
+
 Producto.update = function (data, resultado) {
-    sql.query(productos, info, data, (err, sqlRes) => {
+    sql.query(productos, ['Plankemellama PTM', 'Quiero llorar MALDITA SEA', '398.21', '3', 10], data, (err, sqlRes) => {
         if (err) {
             console.log(err);
             resultado(err, null);
