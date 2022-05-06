@@ -33,11 +33,11 @@ Precio = ?,
 Tipo = ?
 WHERE id = ?`;
 let info = [
-    producto.nombre,
-    producto.descripcion,
-    producto.precio,
-    producto.tipo,
-    producto.id
+    Producto.nombre,
+    Producto.descripcion,
+    Producto.precio,
+    Producto.tipo,
+    Producto.id
 ]
 Producto.update = function (data, resultado) {
     sql.query(productos, info, data, (err, sqlRes) => {
