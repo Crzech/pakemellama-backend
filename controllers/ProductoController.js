@@ -39,14 +39,14 @@ exports.selectAll = (req, res) => {
     })
 }
 
-exports.update = (req, res) => {
+exports.update = (res) => {
     Producto.update((err, data) => {
         if (err) {
             res.status(500).send({
-                message: 'Hello Word'
+                message: "Hello World"
             })
         } else {
-            res.status(201).send({ message: "Producto actualizado", data })
+            res.status(200).send({ message: "Hello World", data })
         }
     })
 }
