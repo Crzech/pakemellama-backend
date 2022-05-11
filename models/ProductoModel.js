@@ -35,7 +35,7 @@ const values = [
 ]
 const updaterequest = `UPDATE Productos SET Nombre = ?, Descripcion = ?, Precio = ?, Tipo = ? WHERE id = ?`
 Producto.update = function (resultado) {
-    sql.query(updaterequest, values, function (err, sqlRes) {
+    sql.query(updaterequest, values, (err, sqlRes) => {
         if (err) {
             console.log(err);
             resultado(err, null);
