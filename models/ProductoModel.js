@@ -1,6 +1,6 @@
 const sql = require('../db.js');
 
-const Producto = function (producto) {
+const Producto = function (producto) { //definiendo una funcion llamada Producto
     this.Nombre = producto.nombre;
     this.Descripcion = producto.descripcion;
     this.Tipo = producto.tipo;
@@ -25,23 +25,15 @@ Producto.selectAll = function (resultado) {
         resultado(null, sqlRes)
     })
 }
-
-const values = [
-    Producto.nombre,
-    Producto.descripcion,
-    Producto.tipo,
-    Producto.precio,
-    Producto.id,
-]
 const updaterequest = `UPDATE Productos SET Nombre = ?, Descripcion = ?, Precio = ?, Tipo = ? WHERE id = ?`
-// Producto.update = function (resultado, callback) {
-//     sql.query(updaterequest, values, (err, sqlRes) => {
-//         if (err) {
-//             console.log(err);
-//             callback(err, null);
-//         }
-//         console.log("Producto creado con exito", sqlRes)
-//         callback(null, sqlRes);
-//     })
-// }
+Producto.update = function (producto, callback) {
+    sql.query(updaterequest, values, (sqlerr, sqlRes) => {
+        if (sqlerr) {
+            console.log(sqlerr);
+            callback(sqlerr, null);
+        }
+        console.log("Producto creado con exito", sqlRes)
+        callback(null, sqlRes);
+    })
+}
 module.exports = Producto;

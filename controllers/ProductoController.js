@@ -42,27 +42,27 @@ exports.selectAll = (req, res) => {
 
 exports.update = (req, res) => {
     res.send(producto)
-    // if (!req.body) {
-    //     res.status(400).send({
-    //         message: "El contenido de la petición no puede estar vacío"
-    //     });
-    //     return;
-    // }
+    if (!req.body) {
+        res.status(400).send({
+            message: "El contenido de la petición no puede estar vacío"
+        });
+        return;
+    }
     const { nombre, descripcion, tipo, precio, id } = req.body
-    const producto = new Producto({
-        nombre,
+    const producto = new Producto({ //ejecuantando la funcion producto del modelo osea esa haciendo esto this.Nombre (closure de la prop Nombre) = producto.nombre aqui
+        nombre, //(agregando la propiedad Nmbre a una nueva propiedad de Producto)
         descripcion,
         tipo,
         precio,
         id
     })
-    // Producto.update(producto, (err, data) => {
-    //     if (err) {
-    //         res.status(500).send({
-    //             message: err.message
-    //         })
-    //     } else {
-    //         res.status(201).send({ message: "Producto actualizado", data })
-    //     }
-    // })
+    Producto.update(producto, (err, data) => {
+        if (err) {
+            res.status(500).send({
+                message: err.message
+            })
+        } else {
+            res.status(201).send({ message: "Producto actualizado", data })
+        }
+    })
 }
