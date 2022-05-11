@@ -46,14 +46,14 @@ exports.update = (req, res) => {
         });
         return;
     }
-    const { nombre, descripcion, tipo, precio, id } = req.body
-    const producto = new Producto({ //ejecuantando la funcion producto del modelo osea esa haciendo esto this.Nombre (closure de la prop Nombre) = producto.nombre aqui
-        nombre, //(agregando la propiedad Nmbre a una nueva propiedad de Producto)
+    const [nombre, descripcion, tipo, precio, id] = req.body
+    const producto = new Producto([
+        nombre,
         descripcion,
         tipo,
         precio,
         id
-    })
+    ])
     Producto.update(producto, (err, data) => {
         if (err) {
             res.status(500).send({

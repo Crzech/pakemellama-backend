@@ -1,6 +1,6 @@
 const sql = require('../db.js');
 
-const Producto = function (producto) { //definiendo una funcion llamada Producto
+const Producto = function (producto) {
     this.Nombre = producto.nombre;
     this.Descripcion = producto.descripcion;
     this.Tipo = producto.tipo;
