@@ -46,21 +46,21 @@ exports.update = (req, res) => {
         });
         return;
     }
-    const { nombre, descripcion, tipo, precio, id } = req.body;
+    const { nombre, descripcion, tipo, precio, id } = req.body
     const producto = new Producto({
         nombre,
         descripcion,
         tipo,
         precio,
         id
-    });
+    })
     Producto.update(producto, (err, data) => {
         if (err) {
             res.status(500).send({
-                message: err.message || "Algun error interno ha sucedido al crear el producto"
-            });
+                message: err.message
+            })
         } else {
-            res.status(201).send({ message: "Producto actualizado exitosamente", data })
+            res.status(201).send({ message: "Producto actualizado", data })
         }
     })
 }
