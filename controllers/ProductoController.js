@@ -54,13 +54,13 @@ exports.update = (req, res) => {
         precio,
         id
     })
-    Producto.update((err, data) => {
+    Producto.update(producto, (err, data) => {
         if (err) {
             res.status(500).send({
-                message: err.message
-            })
+                message: err.message || "Algun error interno ha sucedido al crear el producto"
+            });
         } else {
-            res.status(201).send({ message: "Producto actualizado", data })
+            res.status(201).send({ message: "Producto actualizado exitosamente", data })
         }
     })
 }
