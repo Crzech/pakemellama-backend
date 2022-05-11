@@ -22,7 +22,6 @@ exports.create = (req, res) => {
             });
         } else {
             res.status(201).send({ message: "Producto creado exitosamente", data })
-            console.log(producto)
         }
     })
 };
