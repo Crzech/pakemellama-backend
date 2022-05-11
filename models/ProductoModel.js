@@ -27,11 +27,11 @@ Producto.selectAll = function (resultado) {
 }
 
 const values = [
-    Producto.nombre,
-    Producto.descripcion,
-    Producto.tipo,
-    Producto.precio,
-    Producto.id,
+    producto.nombre,
+    producto.descripcion,
+    producto.tipo,
+    producto.precio,
+    producto.id,
 ]
 const updaterequest = `UPDATE Productos SET Nombre = ??, Descripcion = ??, Precio = ??, Tipo = ?? WHERE id = ??`
 Producto.update = function (data, resultado) {
