@@ -54,7 +54,7 @@ exports.update = (req, res) => {
         precio,
         id
     })
-    Producto.update({ nombre, descripcion, tipo, precio, id }, (err, data) => {
+    Producto.update((err, data) => {
         if (err) {
             res.status(500).send({
                 message: err.message
