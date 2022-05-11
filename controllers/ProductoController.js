@@ -1,3 +1,4 @@
+const Productoupdate = require("../models/ProductoModel.js");
 const Producto = require("../models/ProductoModel.js");
 
 exports.create = (req, res) => {
@@ -47,14 +48,14 @@ exports.update = (req, res) => {
         return;
     }
     const { nombre, descripcion, tipo, precio, id } = req.body
-    const producto = new Producto({
+    const producto = new Productoupdate({
         nombre,
         descripcion,
         tipo,
         precio,
         id
     })
-    Producto.update((err, data) => {
+    Producto.update(producto, (err, data) => {
         if (err) {
             res.status(500).send({
                 message: err.message
