@@ -34,14 +34,14 @@ const values = [
     Producto.id,
 ]
 const updaterequest = `UPDATE Productos SET Nombre = ?, Descripcion = ?, Precio = ?, Tipo = ? WHERE id = ?`
-Producto.update = function (resultado, callback) {
-    sql.query(updaterequest, values, (err, sqlRes) => {
-        if (err) {
-            console.log(err);
-            callback(err, null);
-        }
-        console.log("Producto creado con exito", sqlRes)
-        callback(null, sqlRes);
-    })
-}
+// Producto.update = function (resultado, callback) {
+//     sql.query(updaterequest, values, (err, sqlRes) => {
+//         if (err) {
+//             console.log(err);
+//             callback(err, null);
+//         }
+//         console.log("Producto creado con exito", sqlRes)
+//         callback(null, sqlRes);
+//     })
+// }
 module.exports = Producto;
