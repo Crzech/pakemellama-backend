@@ -26,7 +26,7 @@ Producto.selectAll = function (resultado) {
     })
 }
 const updaterequest = `UPDATE Productos SET Nombre = ?, Descripcion = ?, Precio = ?, Tipo = ? WHERE id = ?`
-Producto.update = function (producto, callback) {
+Producto.update = function (callback) {
     sql.query(updaterequest, values, (sqlerr, sqlRes) => {
         if (sqlerr) {
             console.log(sqlerr);
