@@ -7,13 +7,6 @@ const Producto = function (producto) {
     this.Precio = producto.precio;
     this.id = producto.id;
 }
-const Productoupdate = function (producto) {
-    this.Nombre = producto.nombre;
-    this.Descripcion = producto.descripcion;
-    this.Tipo = producto.tipo;
-    this.Precio = producto.precio;
-    this.id = producto.id;
-}
 Producto.createOne = function (nuevoProducto, resultado) {
     sql.query("INSERT INTO Productos SET ?", nuevoProducto, (err, sqlRes) => {
         if (err) {
@@ -34,14 +27,14 @@ Producto.selectAll = function (resultado) {
 }
 
 const values = [
-    Productoupdate.nombre,
-    Productoupdate.descripcion,
-    Productoupdate.tipo,
-    Productoupdate.precio,
-    Productoupdate.id,
+    Producto.nombre,
+    Producto.descripcion,
+    Producto.tipo,
+    Producto.precio,
+    Producto.id,
 ]
 const updaterequest = `UPDATE Productos SET Nombre = ?, Descripcion = ?, Precio = ?, Tipo = ? WHERE id = ?`
-Productoupdate.update = function (data, resultado) {
+Producto.update = function (data, resultado) {
     sql.query(updaterequest, values, data, (err, sqlRes) => {
         if (err) {
             console.log(err);
@@ -52,4 +45,3 @@ Productoupdate.update = function (data, resultado) {
     })
 }
 module.exports = Producto;
-module.exports = Productoupdate;
