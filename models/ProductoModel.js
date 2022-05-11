@@ -33,7 +33,7 @@ const values = [
     Producto.tipo
 ]
 const updaterequest = `UPDATE Productos SET Nombre = ?, Descripcion = ?, Precio = ?, Tipo = ? WHERE id = ?`
-Producto.update = function (producto, callback) {
+Producto.update = function (values, callback) {
     sql.query(updaterequest, values, (sqlerr, sqlRes) => {
         if (sqlerr) {
             console.log(sqlerr);
