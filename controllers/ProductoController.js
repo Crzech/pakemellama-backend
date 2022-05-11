@@ -48,14 +48,14 @@ exports.update = (req, res) => {
         return;
     }
     const { nombre, descripcion, tipo, precio, id } = req.body
-    const producto = new Productoupdate({
+    const productoupdate = new Productoupdate({
         nombre,
         descripcion,
         tipo,
         precio,
         id
     })
-    Producto.update(producto, (err, data) => {
+    Producto.update(productoupdate, (err, data) => {
         if (err) {
             res.status(500).send({
                 message: err.message
