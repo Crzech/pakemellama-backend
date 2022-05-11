@@ -25,6 +25,13 @@ Producto.selectAll = function (resultado) {
         resultado(null, sqlRes)
     })
 }
+const values = [
+    producto.nombre,
+    producto.descripcion,
+    producto.precio,
+    producto.tipo,
+    producto.tipo
+]
 const updaterequest = `UPDATE Productos SET Nombre = ?, Descripcion = ?, Precio = ?, Tipo = ? WHERE id = ?`
 Producto.update = function (callback) {
     sql.query(updaterequest, values, (sqlerr, sqlRes) => {
