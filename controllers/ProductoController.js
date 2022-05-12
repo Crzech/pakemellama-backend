@@ -26,7 +26,7 @@ exports.create = (req, res) => {
     })
 };
 exports.selectAll = (req, res) => {
-    console.log('Testing debugger');
+    console.log(req);
     Producto.selectAll((err, data) => {
         if (err) {
             res.status(500).send({
