@@ -66,12 +66,6 @@ exports.update = (req, res) => {
         })
 }
 exports.delete = (req, res) => {
-    if (!req.body) {
-        res.status(400).send({
-            message: "El contenido de la petición no puede estar vacío"
-        });
-        return;
-    }
     const id = req.params.id;
     Producto.update(id, (err, data) => {
         if (err) {
