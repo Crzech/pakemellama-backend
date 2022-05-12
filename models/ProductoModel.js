@@ -36,4 +36,6 @@ Producto.update = function (data, callback) {
         callback(null, sqlRes);
     })
 }
+Producto.delete = function (data, callback) {
+}
 module.exports = Producto;
