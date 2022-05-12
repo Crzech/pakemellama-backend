@@ -66,7 +66,7 @@ exports.update = (req, res) => {
         })
 }
 exports.delete = (req, res) => {
-    Producto.update((err, data) => {
+    Producto.delete((err, data) => {
         if (err) {
             res.status(500).send({
                 message: err.message
