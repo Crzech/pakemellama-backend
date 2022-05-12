@@ -32,7 +32,7 @@ Producto.update = function (data, callback) {
             console.log(sqlerr);
             callback(sqlerr, null);
         }
-        console.log("Producto creado con exito", sqlRes)
+        console.log("Producto actualizado con exito", sqlRes)
         callback(null, sqlRes);
     })
 }
