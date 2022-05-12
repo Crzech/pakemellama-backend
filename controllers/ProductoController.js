@@ -66,7 +66,6 @@ exports.update = (req, res) => {
         })
 }
 exports.delete = (req, res) => {
-    console.log(req.body)
     const { nombre, descripcion, tipo, precio, id } = req.body
     const producto = new Producto({
         nombre,
@@ -75,6 +74,8 @@ exports.delete = (req, res) => {
         precio,
         id
     })
+    console.log(req.body)
+
     Producto.update(Object.values(producto), (err, data) => {
         if (err) {
             res.status(500).send({
