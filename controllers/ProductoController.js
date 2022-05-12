@@ -50,8 +50,8 @@ exports.update = (req, res) => {
     const producto = new Producto({
         nombre,
         descripcion,
-        tipo,
         precio,
+        tipo,
         id
     })
     Producto.update(Object.values(producto)
