@@ -26,6 +26,7 @@ exports.create = (req, res) => {
     })
 };
 exports.selectAll = (req, res) => {
+    console.log('hola putos')
     Producto.selectAll((err, data) => {
         if (err) {
             res.status(500).send({
