@@ -1,10 +1,10 @@
 const sql = require('../db.js');
 
 const Producto = function (producto) {
-    this.Nombre = producto.nombre;
-    this.Descripcion = producto.descripcion;
-    this.Tipo = producto.tipo;
-    this.Precio = producto.precio;
+    // this.Nombre = producto.nombre;
+    // this.Descripcion = producto.descripcion;
+    // this.Tipo = producto.tipo;
+    // this.Precio = producto.precio;
     this.id = producto.id;
 }
 Producto.createOne = function (nuevoProducto, resultado) {
@@ -37,7 +37,7 @@ Producto.update = function (data, callback) {
     })
 }
 Producto.delete = function (data, response) {
-    sql.query(`DELETE Productos WHERE id = ?`, data.id, (sqlerr, sqlres) => {
+    sql.query(`DELETE Productos WHERE id = ?`, data, (sqlerr, sqlres) => {
         if (sqlerr) {
             console.log(sqlerr)
             response(sqlerr, null);
