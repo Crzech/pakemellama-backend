@@ -66,6 +66,7 @@ exports.update = (req, res) => {
         })
 }
 exports.delete = (req, res) => {
+    debugger
     const { id } = req.body
     const producto = new Producto({ id })
     Producto.delete(Object.values(producto), (err, data) => {
