@@ -37,8 +37,8 @@ Producto.update = function (data, callback) {
     })
 }
 
-Producto.delete = function (response) {
-    sql.query(`DELETE Productos WHERE id = ?`, (sqlerr, sqlres) => {
+Producto.delete = function (data, response) {
+    sql.query(`DELETE Productos WHERE id = ?`, data, (sqlerr, sqlres) => {
         if (sqlerr) {
             console.log(sqlerr)
             response(sqlerr, null);
