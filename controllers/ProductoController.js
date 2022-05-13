@@ -66,7 +66,7 @@ exports.update = (req, res) => {
         })
 }
 exports.delete = (req, res) => {
-    const id = req.body
+    const id = req.id
     const producto = new Producto(id)
     console.log(Object.values(producto))
     Producto.delete(Object.values(producto), (err, data) => {
