@@ -67,8 +67,7 @@ exports.update = (req, res) => {
 }
 exports.delete = (req, res) => {
     const id = req.id
-    const producto = new Producto(id)
-    console.log(Object.values(producto))
+    console.log(id)
     Producto.delete(Object.values(producto), (err, data) => {
         if (err) {
             res.status(500).send({
