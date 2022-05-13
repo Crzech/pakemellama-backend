@@ -74,7 +74,7 @@ exports.delete = (req, res) => {
                 message: err.message
             })
         } else {
-            res.status(201).send({ message: "Producto eliminado", data })
+            res.status(201).send({ message: "Producto eliminado" })
         }
     })
 }
