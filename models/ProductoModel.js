@@ -29,11 +29,11 @@ const updaterequest = `UPDATE Productos SET Nombre = ?, Descripcion = ?, Precio 
 Producto.update = function (data, callback) {
     sql.query(updaterequest, data, (sqlerr, sqlRes, _) => {
         if (sqlerr) {
-            console.log(sqlerr);
+            console.log(updaterequest);
             callback(sqlerr, null);
         }
-        console.log(sqlRes.insertId)
-        callback(null, { id: sqlRes.insertId });
+        console.log("Producto actualizado con exito", sqlRes)
+        callback(null, sqlRes);
     })
 }
 Producto.delete = function (data, response) {
