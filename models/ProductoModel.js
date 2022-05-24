@@ -14,7 +14,7 @@ Producto.createOne = function (nuevoProducto, resultado) {
             resultado(err, null);
         }
         console.log(sqlRes.insertId);
-        resultado(null, { id: sqlRes.insertId, ...nuevoProducto });
+        resultado(null, { ...nuevoProducto, id: sqlRes.insertId, });
     });
 }
 Producto.selectAll = function (resultado) {
