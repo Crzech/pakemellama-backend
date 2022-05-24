@@ -8,12 +8,12 @@ const Producto = function (producto) {
     this.id = producto.id;
 }
 Producto.createOne = function (nuevoProducto, resultado) {
-    sql.query("INSERT INTO Productos SET ?", nuevoProducto, (err, sqlRes) => {
+    sql.query("INSERT INTO Productos SET ?", nuevoProducto, (err, sqlRes, fields) => {
         if (err) {
             console.log(err);
             resultado(err, null);
         }
-        console.log("Producto creado con exito", { sqlRes })
+        console.log("Producto creado con exito", [sqlRes, fields])
         resultado(null, { id: sqlRes.insertId, ...nuevoProducto });
     });
 }
