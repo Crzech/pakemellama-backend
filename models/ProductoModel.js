@@ -31,7 +31,7 @@ Producto.update = function (data, callback) {
         if (sqlerr) {
             callback(sqlerr, null);
         }
-        console.log(updaterequest);
+        console.log(data);
         callback(null, sqlRes);
     })
 }
