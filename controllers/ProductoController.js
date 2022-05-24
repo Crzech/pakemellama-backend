@@ -21,7 +21,7 @@ exports.create = (req, res) => {
                 message: err.message || "Algun error interno ha sucedido al crear el producto"
             });
         } else {
-            res.status(201).send({ data })
+            res.status(201).send({ message: "Producto creado exitosamente", data })
         }
     })
 };
