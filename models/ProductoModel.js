@@ -32,6 +32,7 @@ Producto.update = function (data, callback) {
             console.log(sqlerr);
             callback(sqlerr, null);
         }
+        console.log(sqlRes.id)
         callback(null, { ...nuevoProducto, id: sqlRes.insertId });
     })
 }
