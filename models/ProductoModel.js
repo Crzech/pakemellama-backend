@@ -13,6 +13,7 @@ Producto.createOne = function (nuevoProducto, resultado) {
             console.log(err);
             resultado(err, null);
         }
+        console.log(sqlRes);
         resultado(null, { id: sqlRes.insertId, ...nuevoProducto });
     });
 }
