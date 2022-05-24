@@ -8,12 +8,11 @@ const Producto = function (producto) {
     this.id = producto.id;
 }
 Producto.createOne = function (nuevoProducto, resultado) {
-    sql.query("INSERT INTO Productos SET ?", nuevoProducto, (err, sqlRes, fields) => {
+    sql.query("INSERT INTO Productos SET ?", nuevoProducto, (err, sqlRes, _) => {
         if (err) {
             console.log(err);
             resultado(err, null);
         }
-        console.log("Producto creado con exito", [sqlRes, fields])
         resultado(null, { id: sqlRes.insertId, ...nuevoProducto });
     });
 }
@@ -27,7 +26,7 @@ Producto.selectAll = function (resultado) {
 }
 const updaterequest = `UPDATE Productos SET Nombre = ?, Descripcion = ?, Precio = ?, Tipo = ? WHERE id = ?`
 Producto.update = function (data, callback) {
-    sql.query(updaterequest, data, (sqlerr, sqlRes) => {
+    sql.query(updaterequest, data, (sqlerr, sqlRes, _) => {
         if (sqlerr) {
             console.log(sqlerr);
             callback(sqlerr, null);
