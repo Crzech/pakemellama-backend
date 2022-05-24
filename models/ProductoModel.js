@@ -29,10 +29,9 @@ const updaterequest = `UPDATE Productos SET Nombre = ?, Descripcion = ?, Precio 
 Producto.update = function (data, callback) {
     sql.query(updaterequest, data, (sqlerr, sqlRes, _) => {
         if (sqlerr) {
-            console.log(updaterequest);
             callback(sqlerr, null);
         }
-        console.log("Producto actualizado con exito", sqlRes)
+        console.log(updaterequest);
         callback(null, sqlRes);
     })
 }
