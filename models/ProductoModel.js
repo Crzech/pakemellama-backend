@@ -32,7 +32,7 @@ Producto.update = function (data, callback) {
             callback(sqlerr, null);
         }
         console.log(data);
-        callback(null, sqlRes);
+        callback(null, data, sqlRes);
     })
 }
 Producto.delete = function (data, response) {
